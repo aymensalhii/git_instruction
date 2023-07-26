@@ -1,0 +1,50 @@
+<ion-content [fullscreen]="false" class="ion-padding">
+  <div id="recaptcha-container" style="display: none;"></div>
+  <div class="login-container pt-5">
+    <div *ngIf="signup">
+      <h1>Create an account</h1>
+      <span>Enter your phone number to get started.</span>
+    </div>
+    <div *ngIf="!signup">
+      <h1>Login</h1>
+      <span>Please sign in to continue.</span>
+    </div>
+
+    <div class="d-flex mb-3">
+      <p-dropdown class="p-inputtext-sm" [options]="countries" [(ngModel)]="selectedCountry" optionLabel="name" [filter]="true" filterBy="name" placeholder="+974">
+        <ng-template pTemplate="selectedItem">
+            <div class="country-item d-flex country-item-value" *ngIf="selectedCountry">
+                <img src="assets/flags/{{selectedCountry.flag}}.svg" style="height: 20px; margin-right: 12px; margin-top: 3px;" [class]="'flag flag-' + selectedCountry.code.toLowerCase()" />
+                <div>{{selectedCountry.name}}</div>
+            </div>
+        </ng-template>
+        <ng-template let-country pTemplate="item">
+            <div class="country-item d-flex">
+                <img src="assets/flags/{{country.flag}}.svg" style="height: 20px; margin-right: 12px; margin-top: 3px;" [class]="'flag flag-' + country.code.toLowerCase()" />
+                <div>{{country.name}}</div>
+            </div>
+        </ng-template>
+      </p-dropdown>
+      <div class="tel-input">
+        <p-inputMask [mask]="selectedCountry.mask" [minlength]="6" class="p-inputtext-sm" [(ngModel)]="tlf" placeholder="{{selectedCountry.mask}}"></p-inputMask>
+      </div>
+    </div>
+
+    <div class="field mb-3" *ngIf="step > 0">
+      <label for="phonenumber" class="block">OTP</label>
+      <code-input
+      (codeChanged)="onCodeChanged($event)"
+      (codeCompleted)="onCodeCompleted($event)"
+      >
+      </code-input>
+    </div>
+
+    <button pButton pRipple type="button" class="col-12" label="Send OTP" *ngIf="step === 0" [disabled]="tlf === undefined || tlf === '' || tlf.length < 6" (click)="Login()"></button>
+    <button pButton pRipple type="button" class="col-12" label="Verify OTP" *ngIf="step > 0" [disabled]="verifyOtpString.length < 6" (click)="verifyOTP()"></button>
+
+  </div>
+
+  <div class="fixed-bottom ion-padding">
+    Don't have an account? <a (click)="signup = !signup">Sign Up</a>
+  </div>
+</ion-content>

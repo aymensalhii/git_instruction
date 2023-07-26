@@ -1,0 +1,45 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-content class="sidebar-container" style="position: relative !important;">
+        <div class="sidebar-header" [ngClass]="{'ion-padding': !userDataService.isAuthenticated}">
+          <ion-menu-toggle auto-hide="false" *ngIf="!userDataService.isAuthenticated">
+            <button routerDirection="root" [routerLink]="'/auth/login'" pButton pRipple type="button" label="Join us" class="p-button-rounded join-us-btn"></button>
+          </ion-menu-toggle>
+
+          <div class="user-info-header ion-padding d-flex justify-content-between"  *ngIf="userDataService.isAuthenticated">
+            <div class="avatar-name-box d-flex">
+              <div class="avatar-box">
+                <i class="bi bi-person-fill"></i>
+              </div>
+              <div class="name-box">
+                <h4 class="m-0">{{userDataService.currentUser?.name}}</h4>
+                {{userDataService.currentUser?.phoneCode}}{{userDataService.currentUser?.tlf}}
+              </div>
+            </div>
+            <div class="painter-box">
+              <ion-button fill="clear" class="text-white m-0 p-0" size="small" (click)="openThemePopup()">
+                <i class="bi bi-palette text-white"></i>
+              </ion-button>
+            </div>
+          </div>
+        </div>
+
+        <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+          <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
+            <!--<ion-icon aria-hidden="true" *ngIf="p.iconType === 'ionic'" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-outline'"></ion-icon>-->
+            <i [class]="'bi bi-'+p.icon"></i>
+            <ion-label [ngClass]="{'bootsrap-icon': p.iconType === 'bootstrap'}">{{ p.title }}</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <div style="height: 84px; width: 100%;"></div>
+        <div class="logout-version-box ion-padding-horizontal ion-padding-bottom">
+          <button pButton pRipple type="button" (click)="logout()" label="Logout" class="p-button-text col-12 p-button-sm p-button-danger join-us-btn"></button>
+          <p class="text-center col-12 m-0">version 0.0.1</p>
+        </div>
+      </ion-content>
+    </ion-menu>
+
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

@@ -1,0 +1,84 @@
+<ion-content>
+
+  <form class="ion-padding sign-up-form" [formGroup]="form">
+    <div class="role-section mb-3" *ngIf="step >= 0 && step < 3">
+      <div class="disabled-panel" *ngIf="step > 0"></div>
+      <div class="field-checkbox d-flex justify-content-between">
+        <div class="role-col text-center">
+          <input type="radio" formControlName="role" class="btn-check" id="btnradio1" autocomplete="off" value="owner">
+          <label class="role-box border shadow-sm" [ngClass]="{'selected-role': form.controls['role'].value == 'owner'}" for="btnradio1">
+            <svg width="80" height="75" viewBox="0 0 80 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.85 1.75C15.3194 1.20117 15.9022 0.760553 16.5582 0.458456C17.2142 0.156358 17.9278 -4.75033e-05 18.65 1.08224e-08H61.35C62.0722 -4.75033e-05 62.7858 0.156358 63.4418 0.458456C64.0978 0.760553 64.6806 1.20117 65.15 1.75L78.195 16.97C79.3597 18.3292 79.9999 20.0601 80 21.85V23.125C80.0003 25.5999 79.2273 28.013 77.7891 30.0271C76.3509 32.0412 74.3193 33.5556 71.9784 34.3587C69.6374 35.1618 67.104 35.2134 64.7323 34.5063C62.3606 33.7993 60.269 32.3689 58.75 30.415C57.6407 31.8438 56.2191 32.9999 54.5942 33.7946C52.9692 34.5893 51.1839 35.0016 49.375 35C47.566 35.002 45.7806 34.5899 44.1556 33.7951C42.5305 33.0004 41.109 31.8441 40 30.415C38.891 31.8441 37.4695 33.0004 35.8444 33.7951C34.2194 34.5899 32.434 35.002 30.625 35C28.816 35.002 27.0306 34.5899 25.4056 33.7951C23.7805 33.0004 22.359 31.8441 21.25 30.415C19.731 32.3689 17.6394 33.7993 15.2677 34.5063C12.896 35.2134 10.3626 35.1618 8.02162 34.3587C5.68066 33.5556 3.64911 32.0412 2.21091 30.0271C0.772709 28.013 -0.000272993 25.5999 7.23227e-08 23.125V21.85C6.30377e-05 20.0601 0.640283 18.3292 1.805 16.97L14.855 1.745L14.85 1.75ZM23.75 23.125C23.75 24.9484 24.4743 26.697 25.7636 27.9864C27.053 29.2757 28.8016 30 30.625 30C32.4484 30 34.197 29.2757 35.4864 27.9864C36.7757 26.697 37.5 24.9484 37.5 23.125C37.5 22.462 37.7634 21.8261 38.2322 21.3572C38.7011 20.8884 39.337 20.625 40 20.625C40.663 20.625 41.2989 20.8884 41.7678 21.3572C42.2366 21.8261 42.5 22.462 42.5 23.125C42.5 24.9484 43.2243 26.697 44.5136 27.9864C45.803 29.2757 47.5516 30 49.375 30C51.1984 30 52.947 29.2757 54.2364 27.9864C55.5257 26.697 56.25 24.9484 56.25 23.125C56.25 22.462 56.5134 21.8261 56.9822 21.3572C57.4511 20.8884 58.087 20.625 58.75 20.625C59.413 20.625 60.0489 20.8884 60.5178 21.3572C60.9866 21.8261 61.25 22.462 61.25 23.125C61.25 24.9484 61.9743 26.697 63.2636 27.9864C64.553 29.2757 66.3016 30 68.125 30C69.9484 30 71.697 29.2757 72.9864 27.9864C74.2757 26.697 75 24.9484 75 23.125V21.85C75 21.2541 74.7873 20.6779 74.4 20.225L61.35 5H18.65L5.6 20.225C5.21274 20.6779 4.99995 21.2541 5 21.85V23.125C5 24.9484 5.72433 26.697 7.01364 27.9864C8.30295 29.2757 10.0516 30 11.875 30C13.6984 30 15.447 29.2757 16.7364 27.9864C18.0257 26.697 18.75 24.9484 18.75 23.125C18.75 22.462 19.0134 21.8261 19.4822 21.3572C19.9511 20.8884 20.587 20.625 21.25 20.625C21.913 20.625 22.5489 20.8884 23.0178 21.3572C23.4866 21.8261 23.75 22.462 23.75 23.125ZM7.5 37.5C8.16304 37.5 8.79893 37.7634 9.26777 38.2322C9.73661 38.7011 10 39.337 10 40V70H15V45C15 43.6739 15.5268 42.4021 16.4645 41.4645C17.4021 40.5268 18.6739 40 20 40H35C36.3261 40 37.5979 40.5268 38.5355 41.4645C39.4732 42.4021 40 43.6739 40 45V70H70V40C70 39.337 70.2634 38.7011 70.7322 38.2322C71.2011 37.7634 71.837 37.5 72.5 37.5C73.163 37.5 73.7989 37.7634 74.2678 38.2322C74.7366 38.7011 75 39.337 75 40V70H77.5C78.163 70 78.7989 70.2634 79.2678 70.7322C79.7366 71.2011 80 71.837 80 72.5C80 73.163 79.7366 73.7989 79.2678 74.2678C78.7989 74.7366 78.163 75 77.5 75H2.5C1.83696 75 1.20107 74.7366 0.732233 74.2678C0.263392 73.7989 7.23227e-08 73.163 7.23227e-08 72.5C7.23227e-08 71.837 0.263392 71.2011 0.732233 70.7322C1.20107 70.2634 1.83696 70 2.5 70H5V40C5 39.337 5.26339 38.7011 5.73223 38.2322C6.20107 37.7634 6.83696 37.5 7.5 37.5ZM20 70H35V45H20V70ZM45 45C45 43.6739 45.5268 42.4021 46.4645 41.4645C47.4021 40.5268 48.6739 40 50 40H60C61.3261 40 62.5979 40.5268 63.5355 41.4645C64.4732 42.4021 65 43.6739 65 45V60C65 61.3261 64.4732 62.5979 63.5355 63.5355C62.5979 64.4732 61.3261 65 60 65H50C48.6739 65 47.4021 64.4732 46.4645 63.5355C45.5268 62.5979 45 61.3261 45 60V45ZM60 45H50V60H60V45Z"/>
+            </svg>
+            <span class="role-item">Saloon Owner</span>
+          </label>
+        </div>
+
+        <div class="role-col text-center">
+          <input type="radio" formControlName="role" class="btn-check" id="btnradio2" autocomplete="off" value="customer">
+          <label class="role-box border shadow-sm" [ngClass]="{'selected-role': form.controls['role'].value == 'customer'}" for="btnradio2">
+            <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M35 35C39.6413 35 44.0925 33.1563 47.3744 29.8744C50.6563 26.5925 52.5 22.1413 52.5 17.5C52.5 12.8587 50.6563 8.40752 47.3744 5.12563C44.0925 1.84375 39.6413 0 35 0C30.3587 0 25.9075 1.84375 22.6256 5.12563C19.3437 8.40752 17.5 12.8587 17.5 17.5C17.5 22.1413 19.3437 26.5925 22.6256 29.8744C25.9075 33.1563 30.3587 35 35 35ZM46.6667 17.5C46.6667 20.5942 45.4375 23.5617 43.2496 25.7496C41.0617 27.9375 38.0942 29.1667 35 29.1667C31.9058 29.1667 28.9383 27.9375 26.7504 25.7496C24.5625 23.5617 23.3333 20.5942 23.3333 17.5C23.3333 14.4058 24.5625 11.4383 26.7504 9.25042C28.9383 7.0625 31.9058 5.83333 35 5.83333C38.0942 5.83333 41.0617 7.0625 43.2496 9.25042C45.4375 11.4383 46.6667 14.4058 46.6667 17.5ZM70 64.1667C70 70 64.1667 70 64.1667 70H5.83333C5.83333 70 0 70 0 64.1667C0 58.3333 5.83333 40.8333 35 40.8333C64.1667 40.8333 70 58.3333 70 64.1667ZM64.1667 64.1433C64.1608 62.7083 63.2683 58.3917 59.3133 54.4367C55.51 50.6333 48.3525 46.6667 35 46.6667C21.6417 46.6667 14.49 50.6333 10.6867 54.4367C6.73167 58.3917 5.845 62.7083 5.83333 64.1433H64.1667Z"/>
+            </svg>
+            <span class="role-item">Customer</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="name-section mb-3" *ngIf="step >= 1 && step < 3">
+      <div class="disabled-panel" *ngIf="step > 1"></div>
+      <div class="field">
+        <label for="username1" class="block" *ngIf="form.value.role === 'customer'">Full Name</label>
+        <label for="username1" class="block" *ngIf="form.value.role === 'owner'">Saloon Name</label>
+        <input id="username1" type="text" class="col-12 mb-3" aria-describedby="username1-help" pInputText formControlName="name"/>
+      </div>
+      <div class="field" *ngIf="form.value.role === 'owner'">
+        <label for="cr" class="block">CR Number</label>
+        <input id="cr" type="text" class="col-12 mb-3" aria-describedby="cr-help" pInputText formControlName="cr"/>
+      </div>
+
+      <div class="field">
+        <label for="email" class="block">Email <small>(optional)</small></label>
+        <input id="email" type="email" class="col-12 mb-3" aria-describedby="email-help" pInputText formControlName="email"/>
+      </div>
+    </div>
+
+    <div class="avatar-section d-flex" *ngIf="step === 2 && form.controls['role'].value === 'owner'">
+      <div class="disabled-panel" *ngIf="step > 3"></div>
+      <div class="col-6 pl-0 pr-1">
+        <div class="avatar-preview shadow-sm">
+
+        </div>
+      </div>
+      <div class="col-6 pl-1 pr-0">
+        <button pButton pRipple type="button" class="col-12 select-avatar-btn select-avatar-btn-1 justify-content-center p-button-secondary p-button-text">
+          <p>
+            <ion-icon name="camera-outline"></ion-icon>
+          </p>
+          <span>Use Camera</span>
+        </button>
+        <button pButton pRipple type="button" class="col-12 select-avatar-btn p-button-secondary p-button-text">
+          <p>
+            <ion-icon name="folder-open-outline"></ion-icon>
+          </p>
+          <span>Browse Files</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="signup-leaflet" *ngIf="step === 3 && form.controls['role'].value === 'owner'">
+      <div id="leafletRegisterMap"></div>
+    </div>
+
+    <div class="col-12 d-flex">
+      <button pButton pRipple (click)="Back()" *ngIf="step > 0" type="button" icon="pi pi-arrow-left" class="col-2 mr-2 mt-5 p-button-secondary"></button>
+      <button pButton pRipple *ngIf="form.controls['role'].value === 'owner' && step < 3 || form.controls['role'].value === 'customer' && step === 0 || form.controls['role'].value === ''" [disabled]="form.controls['role'].value === '' && step === 0 || step === 1 && form.controls['name'].value === ''" (click)="Next()" type="button" label="Get Started" class="col mt-5 p-button-help"></button>
+
+      <button pButton pRipple *ngIf="step === 3 && form.controls['role'].value === 'owner'" [disabled]="" (click)="SaveOwner()" type="button" label="Save Changes" class="col mt-5 p-button-help"></button>
+      <button pButton pRipple *ngIf="step === 1 && form.controls['role'].value === 'customer'" [disabled]="" (click)="SaveCustomer()" type="button" label="Save Changes" class="col mt-5 p-button-help"></button>
+    </div>
+    
+  </form>
+
+</ion-content>

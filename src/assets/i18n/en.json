@@ -1,0 +1,15 @@
+{
+  "common": {
+    "welcomeback": "Welcome Back",
+    "agreeto": "I agree to the",
+    "termscondition": "terms and conditions"
+  },
+  "buttons": {
+    "starthere": "Start from here",
+    "okay": "Ok"
+  },
+
+  "dashboad": {
+    "sprovidernbrpermonth": "Service Providers/month"
+  }
+}

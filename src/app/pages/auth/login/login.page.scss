@@ -1,0 +1,13 @@
+:host ::ng-deep .p-dropdown {
+    border-radius: 8px 0 0 8px;
+    height: 42px;
+    max-width: 130px;
+    border-radius: none;
+}
+
+:host ::ng-deep .tel-input .p-inputtext {
+    border-radius: 0 8px 8px 0;
+    height: 42px;
+    min-width: calc(100vw - 158px) !important;
+    border-left: none;
+}

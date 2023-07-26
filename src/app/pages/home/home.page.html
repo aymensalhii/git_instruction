@@ -1,0 +1,11 @@
+<ion-content [fullscreen]="true" class="ion-padding">
+  <app-offers-slides></app-offers-slides>
+
+  <div *ngIf="!userDataService.isAuthenticated && !userDataService.userDataLoading">
+    <h4 class="m-0 mb-3">Join Us Today</h4>
+    <div class="join-us-box">
+      <button routerDirection="root" [routerLink]="'/auth/login'" pButton pRipple type="button" label="Join Us" class="p-button-rounded join-us-btn"></button>
+    </div>
+  </div>
+
+</ion-content>

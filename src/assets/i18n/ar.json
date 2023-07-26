@@ -1,0 +1,15 @@
+{
+  "common": {
+    "welcomeback": "أهلا بعودتك",
+    "agreeto": "أوافق على",
+    "termscondition": "سياية استخدام التطبيق"
+  },
+  "buttons": {
+    "starthere": "إبدأ من هنا",
+    "okay": "حسنا"
+  },
+
+  "dashboad": {
+    "sprovidernbrpermonth": "عدد مزودين الخدمات / الشهر"
+  }
+}

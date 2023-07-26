@@ -1,0 +1,7 @@
+{
+  "name": "saloonqa",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
